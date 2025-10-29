@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pintos lab2 记录.md",
+                "file": "pintos/pintos lab2 记录.md",
                 "mode": "source",
                 "source": false
               },
@@ -178,9 +178,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21c96dcc2471d801",
+  "active": "56439d6954a6972f",
   "lastOpenFiles": [
-    "pintos lab2 记录.md",
+    "pintos/images",
+    "pintos",
+    "pintos/pintos lab2 记录.md",
     "README.md"
   ]
 }
