@@ -17,4 +17,20 @@ $ pintos-mkdisk filesys.dsk --filesys-size=2
 $ pintos -p ../../examples/echo -a echo -- -f -q run 'echo PKUOS'
 ```
 但是会发现最后执行是echo PKUOS整个字符串作为一个程序一起执行的,而不是echo,而pintos在这里的第一个任务就是完成整个程序调用的参数分离.
-接下来看
+不过在完成参数分离之前,看接下来的函数:
+```c
+static void
+run_task (char **argv)
+{
+  const char *task = argv[1];
+  
+  printf ("Executing '%s':\n", task);
+#ifdef USERPROG
+  process_wait (process_execute (task));
+#else
+  run_test (task);
+#endif
+  printf ("Execution of '%s' complete.\n", task);
+}
+```
+而process_wait是没有被实现的,直接返回-1,整个线程就不会等待应用程序的线程完成,就直接退出,所以在这个时候make check会出现没有任何东西输出的结果.
