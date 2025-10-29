@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "17ca9480aeb527a8",
+        "id": "dbe7140431d889da",
         "type": "tabs",
         "children": [
           {
-            "id": "bf1667defd514e7c",
+            "id": "21c96dcc2471d801",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -178,9 +178,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bf1667defd514e7c",
+  "active": "21c96dcc2471d801",
   "lastOpenFiles": [
-    "README.md",
-    "pintos lab2 记录.md"
+    "pintos lab2 记录.md",
+    "README.md"
   ]
 }
