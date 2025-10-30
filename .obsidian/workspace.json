@@ -164,8 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,8 +178,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21c96dcc2471d801",
+  "active": "7daf46a7856bbd5e",
   "lastOpenFiles": [
+    "mkdocs.yml",
     "README.md",
     "pintos/pintos lab2 record.md",
     "pintos/images",
