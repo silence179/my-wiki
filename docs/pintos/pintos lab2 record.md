@@ -7,9 +7,9 @@ void thread_try_yield(void) {
     thread_yield();
 }
 ```
-[解决方案出处](https://stackoverflow.com/questions/52472084/pintos-userprog-all-tests-fail-is-kernel-vaddr)
+<b>[解决方案出处](https://stackoverflow.com/questions/52472084/pintos-userprog-all-tests-fail-is-kernel-vaddr)</b>
 当然也可以选择重新开一个pintos (以下基于一个新的pintos源码)
-[更好的pintos指导](https://pkuflyingpig.gitbook.io/pintos)
+<b>[更好的pintos指导](https://pkuflyingpig.gitbook.io/pintos)</b>
 
 需要在usrprog的目录下去重新构建项目并且将pintos的loader 和 kernel都重新指向这个新的.整个项目基于pintos的文件系统,所以要新建一个filesys.dsk,以下是一个测试
 ```bash
@@ -33,4 +33,41 @@ run_task (char **argv)
   printf ("Execution of '%s' complete.\n", task);
 }
 ```
-而process_wait是没有被实现的,直接返回-1,整个线程就不会等待应用程序的线程完成,就直接退出,所以在这个时候make check会出现没有任何东西输出的结果.
+而process_wait是没有被实现的,直接返回-1,整个线程就不会等待应用程序的线程完成,就直接退出,所以在这个时候make check会出现没有任何东西输出的结果.所以要实现这个process_wait函数.
+在此之前要给thread函数维护一个子线程的队列,也就是要加入
+```c
+    struct list children_list;
+	struct list_elem child_elem;
+    struct semaphore being_waited_on;
+```
+然后在process_wait里面实现这个查询
+```c
+int
+process_wait (tid_t child_tid) 
+{
+    struct thread *child_thread = NULL;
+
+    struct list_elem *tmp;
+
+    if(list_empty(&thread_current()->children_list)){
+        return -1;  //we don't have to wait so return -1
+    }
+
+    for(tmp=list_front(&thread_current()->children_list);tmp!=NULL;tmp=tmp->next){
+        struct thread *t = list_entry(tmp,struct thread,child_elem);
+        if(t->tid==child_tid){
+            child_thread = t;
+            break;
+        }
+    }
+    if(child_thread==NULL){
+        return -1;
+    }
+    list_remove(&child_thread->child_elem);
+    
+    sema_down(&child_thread->being_waited_on);
+
+    return child_thread->exit_code;
+}
+```
+这个地方的child_list的入队是在
