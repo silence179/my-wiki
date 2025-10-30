@@ -84,4 +84,4 @@ if (tid == TID_ERROR)
 ```
 然后我们在thread_exit()中将信号量sema_up就完成了wait的逻辑.
 这个时候的执行结果是打印了system call!
-不过至少有输出了.
+不过至少有输出了,还不错.
