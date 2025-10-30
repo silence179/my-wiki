@@ -181,15 +181,20 @@
   "active": "56439d6954a6972f",
   "lastOpenFiles": [
     "mkdocs.yml~",
+    "site/search/search_index.json",
+    "site/search",
+    "site/pintos/pintos lab2 record/index.html",
+    "site/pintos/pintos lab2 record",
+    "site/pintos",
+    "site/index.html",
+    "site/404.html",
+    "site/sitemap.xml.gz",
+    "site/sitemap.xml",
+    "site/assets/stylesheets/palette.06af60db.min.css.map",
+    "site/assets/images/favicon.png",
     "docs/pintos/pintos lab2 record.md",
-    "docs/pintos/images",
-    "docs/pintos",
     "pintos/pintos lab2 record.md",
     "docs/index.md",
-    "docs",
-    "mkdocs.yml",
-    "README.md",
-    "pintos/images",
-    "pintos"
+    "README.md"
   ]
 }
