@@ -180,6 +180,9 @@
   },
   "active": "7daf46a7856bbd5e",
   "lastOpenFiles": [
+    "mkdocs.yml~",
+    "docs/index.md",
+    "docs",
     "mkdocs.yml",
     "README.md",
     "pintos/pintos lab2 record.md",
