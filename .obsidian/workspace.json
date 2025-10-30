@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pintos/pintos lab2 record.md",
+                "file": "docs/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pintos lab2 record"
+              "title": "index"
             }
           }
         ],
@@ -178,14 +178,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7daf46a7856bbd5e",
+  "active": "56439d6954a6972f",
   "lastOpenFiles": [
+    "pintos/pintos lab2 record.md",
     "mkdocs.yml~",
     "docs/index.md",
     "docs",
     "mkdocs.yml",
     "README.md",
-    "pintos/pintos lab2 record.md",
     "pintos/images",
     "pintos"
   ]
