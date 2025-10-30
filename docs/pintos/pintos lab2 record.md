@@ -70,4 +70,18 @@ process_wait (tid_t child_tid)
     return child_thread->exit_code;
 }
 ```
-这个地方的child_list的入队是在
+这个地方的child_list的入队是在process_execute函数里面做的
+```c
+if (tid == TID_ERROR)
+    palloc_free_page (fn_copy); 
+  else{
+    current_tid = tid;
+    enum intr_level old_level = intr_disable();
+    thread_foreach(*find_tid,NULL);
+    list_push_front(&thread_current()->children_list,&matching_thread->child_elem);
+    intr_set_level(old_level);
+  }
+```
+然后我们在thread_exit()中将信号量sema_up就完成了wait的逻辑.
+这个时候的执行结果是打印了system call!
+不过至少有输出了.
